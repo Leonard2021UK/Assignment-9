@@ -22,14 +22,11 @@ public class RecipeServiceImpl  implements RecipeService {
         this.recipeFactory = recipeFactory;
         this.fileService = fileService;
         this.recipeRepo = recipeRepository;
-        this.seedDataFromFile();
+        this.storeRecipes();
     }
 
-    public void storeRecipe(Recipe recipe){
-        this.recipeRepo.storeRecipe(recipe);
-    }
 
-    public void seedDataFromFile(){
+    public void storeRecipes(){
         try {
             Iterable<CSVRecord> recipes = this.fileService.readFile();
             for (CSVRecord recipeRecord : recipes) {
