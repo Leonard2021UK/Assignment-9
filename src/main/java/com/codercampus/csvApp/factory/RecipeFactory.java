@@ -1,7 +1,7 @@
-package com.codercampus.csvApp.factories;
+package com.codercampus.csvApp.factory;
 
 import com.codercampus.csvApp.domain.Recipe;
-import com.codercampus.csvApp.intrfaces.Factory;
+import com.codercampus.csvApp.appInterface.Factory;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Component;
 

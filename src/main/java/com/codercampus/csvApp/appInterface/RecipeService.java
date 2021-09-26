@@ -1,6 +1,4 @@
-package com.codercampus.csvApp.intrfaces;
-
-import com.codercampus.csvApp.domain.Recipe;
+package com.codercampus.csvApp.appInterface;
 
 public interface RecipeService {
 

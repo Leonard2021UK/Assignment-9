@@ -1,6 +1,6 @@
-package com.codercampus.csvApp.services;
+package com.codercampus.csvApp.service;
 
-import com.codercampus.csvApp.intrfaces.FileService;
+import com.codercampus.csvApp.appInterface.FileService;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;

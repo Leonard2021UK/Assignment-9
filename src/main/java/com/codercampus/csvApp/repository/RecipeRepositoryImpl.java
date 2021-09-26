@@ -1,10 +1,11 @@
 package com.codercampus.csvApp.repository;
 
 import com.codercampus.csvApp.domain.Recipe;
-import com.codercampus.csvApp.intrfaces.RecipeRepository;
+import com.codercampus.csvApp.appInterface.RecipeRepository;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class RecipeRepositoryImpl implements RecipeRepository {
@@ -16,49 +17,25 @@ public class RecipeRepositoryImpl implements RecipeRepository {
         recipeCollection.add(recipe);
     }
 
-
-    public List<Recipe> getAllRecipe(){
+    public List<Recipe> getAllRecipes(){
         return this.recipeCollection;
     }
 
 
     public List<Recipe> getGlutenFreeRecipes(){
-        List<Recipe> glutenFreeRecipes = new ArrayList<>();
-        for(Recipe recipe:this.recipeCollection){
-            if(recipe.getGlutenFree()){
-                glutenFreeRecipes.add(recipe);
-            }
-        }
-        return glutenFreeRecipes;
+       return this.recipeCollection.stream().filter((Recipe::getGlutenFree)).collect(Collectors.toList());
     };
+
     public List<Recipe> getVeganRecipes(){
-        List<Recipe> veganRecipes = new ArrayList<>();
-        for(Recipe recipe:this.recipeCollection){
-            if(recipe.getVegan()){
-                veganRecipes.add(recipe);
-            }
-        }
-        return veganRecipes;
+        return this.recipeCollection.stream().filter((Recipe::getVegan)).collect(Collectors.toList());
     };
 
     public List<Recipe> getVegetarianRecipes(){
-        List<Recipe> vegetarianRecipes = new ArrayList<>();
-        for(Recipe recipe:this.recipeCollection){
-            if(recipe.getVegan()){
-                vegetarianRecipes.add(recipe);
-            }
-        }
-        return vegetarianRecipes;
+        return this.recipeCollection.stream().filter((Recipe::getVegetarian)).collect(Collectors.toList());
     };
 
-    public List<Recipe> getVegetarianAndGlutenFreeRecipes(){
-        List<Recipe> veganAndGlutenFreeRecipes = new ArrayList<>();
-        for(Recipe recipe:this.recipeCollection){
-            if(recipe.getVegan() && recipe.getGlutenFree()){
-                veganAndGlutenFreeRecipes.add(recipe);
-            }
-        }
-        return veganAndGlutenFreeRecipes;
+    public List<Recipe> getVeganAndGlutenFreeRecipes(){
+        return this.recipeCollection.stream().filter((recipe -> recipe.getGlutenFree() && recipe.getVegan())).collect(Collectors.toList());
     };
 
 }

@@ -1,4 +1,4 @@
-package com.codercampus.csvApp.intrfaces;
+package com.codercampus.csvApp.appInterface;
 
 import com.codercampus.csvApp.domain.Recipe;
 
@@ -16,7 +16,7 @@ public interface RecipeRepository {
      * Return all recipes stored in the repository
      * @return
      */
-    List<Recipe> getAllRecipe();
+    List<Recipe> getAllRecipes();
 
     /**
      * Returns only the recipes which are gluten free
@@ -40,7 +40,7 @@ public interface RecipeRepository {
      * Returns only the recipes which are gluten free and vegetarian
      * @return
      */
-    List<Recipe> getVegetarianAndGlutenFreeRecipes();
+    List<Recipe> getVeganAndGlutenFreeRecipes();
 
 
 }

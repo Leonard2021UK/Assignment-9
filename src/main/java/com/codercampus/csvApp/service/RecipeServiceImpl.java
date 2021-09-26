@@ -1,14 +1,17 @@
-package com.codercampus.csvApp.services;
+package com.codercampus.csvApp.service;
 
 
 import com.codercampus.csvApp.domain.Recipe;
-import com.codercampus.csvApp.intrfaces.Factory;
-import com.codercampus.csvApp.intrfaces.FileService;
-import com.codercampus.csvApp.intrfaces.RecipeRepository;
-import com.codercampus.csvApp.intrfaces.RecipeService;
+import com.codercampus.csvApp.appInterface.Factory;
+import com.codercampus.csvApp.appInterface.FileService;
+import com.codercampus.csvApp.appInterface.RecipeRepository;
+import com.codercampus.csvApp.appInterface.RecipeService;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RecipeServiceImpl  implements RecipeService {
@@ -38,5 +41,24 @@ public class RecipeServiceImpl  implements RecipeService {
         }
     }
 
+    public List<Recipe> getGlutenFreeRecipes() {
+       return this.recipeRepo.getGlutenFreeRecipes();
+    }
+
+    public List<Recipe> getVeganAndGlutenFreeRecipes(){
+        return this.recipeRepo.getVeganAndGlutenFreeRecipes();
+    }
+
+    public List<Recipe> getVeganRecipes(){
+        return this.recipeRepo.getVeganRecipes();
+    }
+
+    public List<Recipe> getVegetarianRecipes(){
+        return this.recipeRepo.getVegetarianRecipes();
+    }
+
+    public List<Recipe> getAllRecipes(){
+        return this.recipeRepo.getAllRecipes();
+    }
 
 }

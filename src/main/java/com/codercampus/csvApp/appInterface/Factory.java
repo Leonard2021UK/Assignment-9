@@ -1,4 +1,4 @@
-package com.codercampus.csvApp.intrfaces;
+package com.codercampus.csvApp.appInterface;
 
 import org.apache.commons.csv.CSVRecord;
 
